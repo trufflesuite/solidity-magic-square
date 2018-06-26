@@ -11,6 +11,8 @@ contract MagicSquare {
   function generateMagicSquare(uint n)
     public
   {
+    require(n % 2 == 1);
+
     string memory greeting;
     SquareLib.MagicSquare memory square;
     uint256 x;
