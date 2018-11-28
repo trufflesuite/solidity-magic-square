@@ -32,6 +32,17 @@ contract MagicSquare {
     storedGreeting = "finally, a decentralized magic square service!";
   }
 
+  function get(uint i, uint j)
+    public
+    view
+    returns (uint z)
+  {
+    require(i < storedSquare.n, "i must be less than size of square");
+    require(j < storedSquare.n, "j must be less than size of square");
+
+    z = storedSquare.rows[i][j];
+  }
+
   function save(SquareLib.MagicSquare memory square)
     internal
   {
