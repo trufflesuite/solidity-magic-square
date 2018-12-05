@@ -1,4 +1,4 @@
-pragma solidity ^0.4.18;
+pragma solidity ^0.5.0;
 
 library SquareLib {
   struct MagicSquare {
@@ -41,14 +41,14 @@ library SquareLib {
       newX = (x + 2) % square.n;
       newY = (square.n + y - 1) % square.n;
       lastI = i - 1;
-      return;
+      return (newX, newY, lastI);
     }
 
     square.rows[x][y] = i;
     newX = (square.n + x - 1) % square.n;
     newY = (y + 1) % square.n;
     lastI = i;
-    return;
+    return (newX, newY, lastI);
   }
 }
 
