@@ -1,50 +1,24 @@
-pragma solidity ^0.4.18;
+pragma solidity ^0.4.23;
 
 import "./SquareLib.sol";
 
 contract MagicSquare {
-  using SquareLib for SquareLib.MagicSquare;
+  uint a;
 
-  SquareLib.MagicSquare storedSquare;
-  string storedGreeting;
+  event TestEvent(uint b);
+  event TestEvent2(uint b, uint c);
 
-  function generateMagicSquare(uint n)
-    public
-  {
-    string memory greeting;
-    SquareLib.MagicSquare memory square;
-    uint256 x;
-    uint256 y;
-    uint256 i;
-
-    greeting = "let us construct a magic square:";
-    square = SquareLib.initialize(n);
-
-    x = 0;
-    y = n / 2;
-    for (i = 1; i <= n * n; i++) {
-      (x, y, i) = square.step(x, y, i);
-    }
-
-    save(square);
-    storedGreeting = "finally, a decentralized magic square service!";
-  }
-
-  function save(SquareLib.MagicSquare memory square)
-    internal
-  {
-    uint256 x;
-    uint256 y;
-
-    storedSquare.n = square.n;
-    storedSquare.rows.length = square.n;
-
-    for (x = 0; x < square.n; x++) {
-      storedSquare.rows[x].length = square.n;
-
-      for (y = 0; y < square.n; y++) {
-        storedSquare.rows[x][y] = square.rows[x][y];
-      }
-    }
+  function emitEvent() public {
+    emit TestEvent(13);
+    emit TestEvent2(13, 37);
+    bytes32 data = hex"1337";
+    bytes32 topic = "hello";
+    log1(data, topic);
+    log3(
+      bytes32(123),
+      bytes32(0x50cb9fe53daa9737b786ab3646f04d0150dc50ef4e75f59509d83667ad5adb20),
+      bytes32(uint256(msg.sender)),
+      bytes32(69)
+    );
   }
 }
