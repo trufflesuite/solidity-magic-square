@@ -1,4 +1,4 @@
-pragma solidity ^0.4.18;
+pragma solidity >=0.4.18;
 
 import "./SquareLib.sol";
 
@@ -12,7 +12,7 @@ contract MagicSquare {
     public
   {
     string memory greeting;
-    SquareLib.MagicSquare memory square;
+    SquareLib.MagicSquare calldata square;
     uint256 x;
     uint256 y;
     uint256 i;
