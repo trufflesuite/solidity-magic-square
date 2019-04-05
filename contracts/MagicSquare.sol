@@ -12,7 +12,7 @@ contract MagicSquare {
     public
   {
     string memory greeting;
-    SquareLib.MagicSquare calldata square;
+    SquareLib.MagicSquare memory square;
     uint256 x;
     uint256 y;
     uint256 i;
