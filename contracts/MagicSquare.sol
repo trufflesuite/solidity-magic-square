@@ -1,4 +1,5 @@
 pragma solidity >=0.4.18;
+pragma experimental ABIEncoderV2;
 
 import "./SquareLib.sol";
 
@@ -28,6 +29,14 @@ contract MagicSquare {
 
     save(square);
     storedGreeting = "finally, a decentralized magic square service!";
+  }
+
+  function getSquare()
+    public
+    view
+    returns (SquareLib.MagicSquare memory square)
+  {
+    return storedSquare;
   }
 
   function save(SquareLib.MagicSquare memory square)
