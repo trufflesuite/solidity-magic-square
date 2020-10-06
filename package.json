@@ -20,6 +20,6 @@
   },
   "homepage": "https://github.com/trufflesuite/solidity-magic-square#readme",
   "devDependencies": {
-    "truffle": "^5.0.13"
+    "truffle": "^5.1.47"
   }
 }
